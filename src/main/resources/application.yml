@@ -1,3 +1,29 @@
 server:
   servlet:
     context-path: /myapp
+spring:
+  servlet:
+  application:
+    name: MyAPP
+  profiles:
+    active:
+    - local
+# local Configuration  
+---
+spring:
+  config:
+    activate:
+      on-profile:
+      - local
+bonita:
+   env: local
+   
+# dev Configuration  
+---
+spring:
+  config:
+    activate:
+      on-profile:
+      - dev
+bonita:
+   env: dev

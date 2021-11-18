@@ -3,4 +3,4 @@ ARG JAR_FILE=target/*.jar
 ADD ${JAR_FILE} app.jar
 RUN sh -c 'touch /app.jar'
 ENV JAVA_OPTS=""
-ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -jar /app.jar"]
+ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -Dspring.profiles.active=${ENV} -jar /app.jar"]
